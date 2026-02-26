@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Design System — Derive.xyz Inspired Dark Slate Trading Terminal
+   
+   Palette: Slate-950 background, slate-900 panels, slate-800 borders
+   Text: slate-50 primary, slate-400 muted
+   Accents: green-500 (#22C55E), red-500 (#EF4444), blue-600 (#2563EB)
+   Font: Inter (tabular-nums for data alignment)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Derive.xyz slate palette */
+  --bg-main: #020617;
+  /* slate-950 */
+  --bg-panel: #0F172A;
+  /* slate-900 */
+  --bg-card: #1E293B;
+  /* slate-800 — subtle card/hover bg */
+  --bg-row-hover: rgba(30, 41, 59, 0.5);
+  /* slate-800/50 */
+
+  --text-primary: #F8FAFC;
+  /* slate-50 */
+  --text-secondary: #94A3B8;
+  /* slate-400 */
+  --text-muted: #64748B;
+  /* slate-500 */
+
+  --border-color: #1E293B;
+  /* slate-800 */
+  --border-strong: #334155;
+  /* slate-700 */
+
+  /* Trading accent colors */
+  --green: #22C55E;
+  /* green-500 — profit/puts */
+  --red: #EF4444;
+  /* red-500 — loss */
+  --blue: #2563EB;
+  /* blue-600 — spot price badge */
+  --orange: #F97316;
+  /* orange-500 — active indicator */
+  --yellow: #EAB308;
+  /* yellow-500 — calls */
+
+  /* Typography */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --t-nav: 1rem;
+  /* 16px — navigation tabs */
+  --t-title: 0.9375rem;
+  /* 15px — section headers */
+  --t-data: 0.8125rem;
+  /* 13px — cell data, prices */
+  --t-label: 0.75rem;
+  /* 12px — column headers, labels */
+  --t-meta: 0.6875rem;
+  /* 11px — timestamps, subscripts */
+  --t-micro: 0.625rem;
+  /* 10px — P(exercise) */
+  --t-hero: 1.15rem;
+  /* 18px — featured APY */
+}
+
+/* Light mode — Rysk.finance inspired warm beige/parchment */
+[data-theme='light'] {
+  --bg-main: #E7E3D4;
+  /* warm parchment */
+  --bg-panel: #F1EFE6;
+  /* lighter beige panels */
+  --bg-card: #F5F3EC;
+  /* subtle card lift */
+  --bg-row-hover: rgba(0, 0, 0, 0.04);
+  --text-primary: #000000;
+  /* pure black */
+  --text-secondary: #3D3D3D;
+  /* dark grey */
+  --text-muted: #6B6B6B;
+  /* mid grey */
+  --border-color: #000000;
+  /* solid black borders */
+  --border-strong: #000000;
+  --green: #4ADE80;
+  /* Rysk emerald green */
+  --yellow: #D4A017;
+  /* warm gold */
+  --blue: #3B82F6;
+  --red: #DC2626;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-main);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container — viewport-locked */
+.container {
+  width: 100%;
+  height: 100vh;
+  padding: 8px 12px 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header — clean, minimal */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-color);
+  flex: 0 0 auto;
+}
+
+.header h1 {
+  font-size: var(--t-nav);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+/* Panel — dark card with subtle border */
+.neo-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px 8px;
+  position: relative;
+}
+
+/* Folder tab — subtle, rounded */
+.neo-folder-tab {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: var(--t-micro);
+  border-radius: 4px 4px 0 0;
+  position: absolute;
+  top: -16px;
+  left: 0;
+  height: 16px;
+  border: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--bg-panel);
+}
